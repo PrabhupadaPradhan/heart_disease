@@ -33,14 +33,14 @@ def main():
         cp = st.sidebar.slider('Chest Pain Type (CP)', 0, 3, 0)
         trestbps = st.sidebar.slider('Resting Blood Pressure (mm Hg)', 90, 200, 120)
         chol = st.sidebar.slider('Serum Cholesterol (mg/dl)', 100, 600, 200)
-        fbs = st.sidebar.slider('Fasting Blood Sugar (mg/dl)', 0, 1, 0)
-        restecg = st.sidebar.slider('Resting Electrocardiographic Results', 0, 2, 0)
+        fbs = st.sidebar.slider('Fasting Blood Sugar (mg/dl)', 0, 600, 70)
+        restecg = st.sidebar.slider('Resting Electrocardiographic Results', 0, 200, 60)
         thalach = st.sidebar.slider('Maximum Heart Rate Achieved', 60, 220, 150)
         exang = st.sidebar.slider('Exercise Induced Angina', 0, 1, 0)
         oldpeak = st.sidebar.slider('ST Depression Induced by Exercise Relative to Rest', 0.0, 6.2, 0.0)
         slope = st.sidebar.slider('Slope of the Peak Exercise ST Segment', 0, 2, 0)
         ca = st.sidebar.slider('Number of Major Vessels Colored by Fluoroscopy', 0, 4, 0)
-        thal = st.sidebar.slider('Thalassemia', 0, 3, 0)
+        thal = st.sidebar.slider('Thalassemia', 0, 1, 0)
         
         return age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal
 
@@ -53,7 +53,7 @@ def main():
     st.write('Resting Blood Pressure (mm Hg):', trestbps)
     st.write('Serum Cholesterol (mg/dl):', chol)
     st.write('Fasting Blood Sugar (mg/dl):', fbs)
-    st.write('Resting Electrocardiographic Results:', restecg)
+    st.write('Resting Electrocardiographic Results (bpm):', restecg)
     st.write('Maximum Heart Rate Achieved:', thalach)
     st.write('Exercise Induced Angina:', exang)
     st.write('ST Depression Induced by Exercise Relative to Rest:', oldpeak)
@@ -67,6 +67,8 @@ def main():
     # Make prediction
     input_data = np.array([[age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]])  # Ensure input data has the correct shape
     prediction = predict(model, input_data)[0]
+    if trestbps > 180 or restecg > 150 or fbs > 290:
+        prediction = 1
 
     # Display prediction
     st.write('Prediction:', 'Heart Disease' if prediction == 1 else 'No Heart Disease')
