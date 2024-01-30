@@ -1,10 +1,11 @@
 import streamlit as st
 import numpy as np
-from model import preprocess_and_train_model, predict
+from model import preprocess_and_train_model, predict, fetch_heart_disease_data
 
 # Create Streamlit web app
 def main():
     # Fetch and preprocess data, and train model
+    
     model = preprocess_and_train_model()
     
     # Title of the app
