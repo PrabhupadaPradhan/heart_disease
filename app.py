@@ -1,7 +1,6 @@
 import streamlit as st
 import numpy as np
 from model import preprocess_and_train_model, predict
-from random import randint
 
 # Create Streamlit web app
 def main():
@@ -57,7 +56,6 @@ def main():
     prediction = predict(model, input_data)[0]
 
     # Display prediction
-    prediction = randint(0, 1)
     st.write('Prediction:', 'Heart Disease' if prediction == 1 else 'No Heart Disease')
 
 if __name__ == '__main__':
