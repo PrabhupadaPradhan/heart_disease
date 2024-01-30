@@ -2,24 +2,22 @@ import streamlit as st
 import numpy as np
 from model import preprocess_and_train_model, predict, fetch_heart_disease_data
 
-# Create Streamlit web app
-custom_css = """
-    <style>
-        body {
-            font-family: Arial, serif;
-            font-size: 32px;
-        }
-        h1 {
-            font-size: 24px;
-            font-weight: bold;
-        }
-    </style>
-"""
 # Render the custom CSS styles
 st.markdown(custom_css, unsafe_allow_html=True)
 def main():
     # Fetch and preprocess data, and train model
-    
+    custom_css = """
+        <style>
+            body {
+                font-family: Arial, serif;
+                font-size: 32px;
+            }
+            h1 {
+                font-size: 24px;
+                font-weight: bold;
+            }
+        </style>
+    """
     model = preprocess_and_train_model()
     
     # Title of the app
