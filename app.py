@@ -57,7 +57,7 @@ def main():
     st.write('Maximum Heart Rate Achieved:', thalach)
     st.write('Exercise Induced Angina:', exang)
     st.write('ST Depression Induced by Exercise Relative to Rest:', oldpeak)
-    st.write('Slope of the Peak Exercise ST Segment:', slope)
+    st.write('Slope of the Peak Exercise ST Segment(sec):', slope)
     st.write('Number of Major Vessels Colored by Fluoroscopy:', ca)
     st.write('Thalassemia:', thal)
 
