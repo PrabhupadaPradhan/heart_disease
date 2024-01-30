@@ -10,6 +10,7 @@ def main():
     
     # Title of the app
     st.title('Heart Disease Detection')
+    st.image('heart.png')
 
     # Sidebar for user input
     st.sidebar.title('User Input')
