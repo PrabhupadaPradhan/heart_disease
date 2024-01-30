@@ -2,6 +2,19 @@ import streamlit as st
 import numpy as np
 from model import preprocess_and_train_model, predict, fetch_heart_disease_data
 
+def centered_image(image_path, width):
+    st.image(image_path, width=width)
+
+    # Calculate remaining space for alignment
+    col_width = st.columns((1, 2))[0].width
+    padding = (col_width - width) / 2
+
+    # Add padding to align image
+    st.markdown(
+        f'<style>div.stImage > img {{margin-left: {padding}px !important; margin-right: {padding}px !important;}}</style>',
+        unsafe_allow_html=True
+    )
+
 # Create Streamlit web app
 def main():
     # Fetch and preprocess data, and train model
@@ -10,7 +23,7 @@ def main():
     
     # Title of the app
     st.title('Heart Disease Detection')
-    st.image('heart.png', width = 300, align = "center")
+    centered_image("heart.png", 300)
 
     # Sidebar for user input
     st.sidebar.title('User Input')
