@@ -2,8 +2,6 @@ import streamlit as st
 import numpy as np
 from model import preprocess_and_train_model, predict, fetch_heart_disease_data
 
-# Render the custom CSS styles
-st.markdown(custom_css, unsafe_allow_html=True)
 def main():
     # Fetch and preprocess data, and train model
     custom_css = """
@@ -18,6 +16,7 @@ def main():
             }
         </style>
     """
+    st.markdown(custom_css, unsafe_allow_html=True)
     model = preprocess_and_train_model()
     
     # Title of the app
