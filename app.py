@@ -6,7 +6,7 @@ from model import preprocess_and_train_model, predict, fetch_heart_disease_data
 custom_css = """
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: Arial, serif;
             font-size: 32px;
         }
         h1 {
