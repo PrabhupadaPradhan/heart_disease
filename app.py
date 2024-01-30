@@ -3,6 +3,24 @@ import numpy as np
 from model import preprocess_and_train_model, predict, fetch_heart_disease_data
 
 # Create Streamlit web app
+custom_css = """
+    <style>
+        /* Change font style and size */
+        body {
+            font-family: Arial, sans-serif; /* Change font family */
+            font-size: 16px; /* Change font size */
+        }
+
+        /* You can also target specific Streamlit components, e.g., headers */
+        h1 {
+            font-size: 24px; /* Change header font size */
+            font-weight: bold; /* Optionally change header font weight */
+        }
+    </style>
+"""
+
+# Render the custom CSS styles
+st.markdown(custom_css, unsafe_allow_html=True)
 def main():
     # Fetch and preprocess data, and train model
     
