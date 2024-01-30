@@ -13,7 +13,6 @@ def fetch_heart_disease_data():
 def preprocess_and_train_model():
     # Fetch heart disease dataset
     heart_disease_df = fetch_heart_disease_data()
-    print(heart_disease_df.head())
     
     # Replace '?' with NaN
     heart_disease_df.replace('?', pd.NA, inplace=True)
