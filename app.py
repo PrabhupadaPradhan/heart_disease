@@ -67,7 +67,7 @@ def main():
     # Make prediction
     input_data = np.array([[age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]])  # Ensure input data has the correct shape
     prediction = predict(model, input_data)[0]
-    if trestbps > 180 or restecg > 150 or fbs > 290 or age > 70 or chol > 260:
+    if trestbps > 180 or restecg > 150 or fbs > 290 or age > 70 or chol > 260 or cp == 3:
         prediction = 1
 
     # Display prediction
